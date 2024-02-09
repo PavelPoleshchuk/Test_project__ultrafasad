@@ -1,0 +1,32 @@
+.main__wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.title {
+  background-color: #5070b1;
+  color: white;
+  padding: 7px 0;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.main__div {
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  /* margin: 20px auto; */
+  max-height: 362px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px 0px rgba(34, 60, 80, 0.2);
+}
+/* .image__wrapper {
+  min-height: 325px;
+  max-height: 350px;
+  overflow: hidden;
+  width: 298px;
+} */
