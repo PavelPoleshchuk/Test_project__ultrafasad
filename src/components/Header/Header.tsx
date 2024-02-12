@@ -5,12 +5,16 @@ import {
   PiInfoBold,
 } from "react-icons/pi";
 import { IoMdExit } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { removeToken } from "../tools/useToken";
 
 function Header() {
   return (
     <header className={styles.header}>
       <div>
-        <img className={styles.header__img} src="/logo.png" alt="Logo" />
+        <Link to="/">
+          <img className={styles.header__img} src="/logo.png" alt="Logo" />{" "}
+        </Link>
         <button className={styles.header__btn}>
           <PiHeadphonesBold />
         </button>
@@ -21,13 +25,14 @@ function Header() {
           <PiInfoBold />
         </button>
       </div>
-      <button className={styles.header__btn_exit}>
-        <IoMdExit
-          style={{ margin: "0 5px 0 0" }}
-          size={20}
-        />
+      <Link
+        onClick={removeToken}
+        to="/login"
+        className={styles.header__btn_exit}
+      >
+        <IoMdExit style={{ margin: "0 5px 0 0" }} size={20} />
         Вихід
-      </button>
+      </Link>
     </header>
   );
 }

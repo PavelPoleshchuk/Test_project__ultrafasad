@@ -1,6 +1,3 @@
-import { setTokenInStorage } from "../redux/sliceToken";
-import { store } from "../redux/store";
-
 export type StoredToken = {
   value: string;
   timeStamp: number;
@@ -41,28 +38,55 @@ const getToken = (): StoredToken | null => {
   return result;
 };
 
-const fetchToken = (email: string, password: string, reset:()=>void) => {
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
-  };
-  fetch("https://reqres.in/api/register", requestOptions)
-    .then((res) => {
-      if (res.status != 200) {
-        alert(`Response status in function 'fetchToken': ${res.status} ВНИМАНИЕ!!! В проекте использыется учебный сервер. Возврат токена возможен только для определенных пользователей. Для успешного получения токена используйте E-mail: eve.holt@reqres.in`);
-      } else return res.json();
-    })
-    .then((data) => {
-      if (data.token) {
-        setToken(data.token);
-        store.dispatch(setTokenInStorage(true));
-        reset();
-      }
-    });
+const fetchToken = async (
+  email: string,
+  password: string,
+  reset: () => void
+) => {
+  try {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    };
+
+    const response = await fetch(
+      "https://reqres.in/api/register",
+      requestOptions
+    );
+
+    if (!response.ok) {
+      alert(
+        "НИМАНИЕ!!! В проекте использыется учебный сервер. Возврат токена возможен только для определенных пользователей. Для успешного получения токена используйте Логин: eve.holt@reqres.in Пароль: любой`"
+      );
+      throw new Error(
+        `Response status in function 'fetchToken': ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    if (data.token) {
+      setToken(data.token);
+      reset();
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("An error occurred:", error.message);
+    }
+    alert(
+      "Произошла ошибка при получении токена. Пожалуйста, проверьте данные."
+    );
+  }
 };
 
-export { getToken, setToken, removeToken, isExpired, fetchToken };
+const isLoggedIn = () => {
+  const token = getToken();
+  if (!token) return false;
+  return !isExpired(token.timeStamp);
+};
+
+export { getToken, setToken, removeToken, isExpired, fetchToken, isLoggedIn };

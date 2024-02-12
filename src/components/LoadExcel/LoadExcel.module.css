@@ -1,0 +1,31 @@
+.root {
+  border: 1px solid #5070b1;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.excel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  font-size: 14px;
+  padding: 4px 15px;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.88);
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px 0px rgba(34, 60, 80, 0.2);
+  transition: all 0.3s ease;
+}
+
+.excel__btn:hover {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.root button:active {
+  box-shadow: none;
+}

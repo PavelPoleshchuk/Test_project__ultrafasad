@@ -5,6 +5,8 @@ import form from "./Form.module.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { LuUser2 } from "react-icons/lu";
+import { fetchToken } from "../tools/useToken";
+import { useNavigate } from "react-router-dom";
 
 const schema = z.object({
   name: z.string().min(3, { message: "Введіть логін" }),
@@ -14,6 +16,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const Form = () => {
+  const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(true);
 
   const triggerVisible = () => setPasswordVisible(!passwordVisible);
@@ -27,9 +30,9 @@ const Form = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    await fetchToken(data.name, data.password, reset);
+    navigate("/");
   };
 
   return (
@@ -43,7 +46,11 @@ const Form = () => {
           <label>Логін</label>
           <div className={form.input__border}>
             <LuUser2 style={{ margin: "3px 5px 0 0" }} size={20} />
-            <input placeholder="Введіть логін" {...register("name")} />
+            <input
+              placeholder="Введіть логін"
+              autoComplete="current-password"
+              {...register("name")}
+            />
           </div>
           <div style={{ height: "20px" }}>
             {errors.name?.message && (
@@ -63,6 +70,7 @@ const Form = () => {
             <input
               type={passwordVisible ? "password" : "text"}
               placeholder="Введіть пароль"
+              autoComplete="current-password"
               {...register("password")}
             />
             {passwordVisible ? (

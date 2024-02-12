@@ -15,25 +15,25 @@ function Navigation() {
           <span>Формування замовлення</span>
         </li>
         <li className={styles.nav__li}>
-          <Link className={styles.link} to="/Login">
+          <Link className={styles.link} to="/Blank">
             <FaRegUser style={{ margin: "0 10px 0 0" }} size={20} />
             Профіль користувача
           </Link>
         </li>
         <li className={styles.nav__li}>
-          <Link className={styles.link} to="/Login">
+          <Link className={styles.link} to="/Blank">
             <FaRegCalendarCheck style={{ margin: "0 10px 0 0" }} size={20} />
             Мої замовлення
           </Link>
         </li>
         <li className={styles.nav__li}>
-          <Link className={styles.link} to="/Login">
+          <Link className={styles.link} to="/Blank">
             <FaRegChartBar style={{ margin: "0 10px 0 0" }} size={20} />
             Технічні характеристики
           </Link>
         </li>
         <li className={styles.nav__li}>
-          <Link className={styles.link} to="/Login">
+          <Link className={styles.link} to="/Blank">
             <FaRegCommentDots style={{ margin: "0 10px 0 0" }} size={20} />
             Чат
           </Link>
