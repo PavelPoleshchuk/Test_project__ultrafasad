@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import Form from "../Form/Form";
 import LoadExcel from "../LoadExcel/LoadExcel";
 import OrderList from "../OrderList/OrderList";
+import { Table } from "../Table.tsx/Table";
 
 interface IData {
   title: string;
@@ -28,7 +29,7 @@ const data: IData[] = [
     title: "Не оформлені замовлення",
     text: "Не оформлені замовлення",
     src: "/all_orders.jpg",
-    body: <Form />,
+    body: <Table/>,
   },
 ];
 
