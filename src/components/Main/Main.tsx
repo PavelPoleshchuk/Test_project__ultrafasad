@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { AiOutlineClose } from "react-icons/ai";
 import Form from "../Form/Form";
 import LoadExcel from "../LoadExcel/LoadExcel";
+import OrderList from "../OrderList/OrderList";
 
 interface IData {
   title: string;
@@ -21,7 +22,7 @@ const data: IData[] = [
     title: "Нове замовлення",
     text: "Нове замовлення",
     src: "/new_order.jpg",
-    body: <Form />,
+    body: <OrderList/>,
   },
   {
     title: "Не оформлені замовлення",
