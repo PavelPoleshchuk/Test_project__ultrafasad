@@ -1,7 +1,6 @@
 import "./App.css";
 import { Navigate, Route, RouteProps, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import Header from "./components/Header/Header";
 import MainPage from "./pages/MainPage/MainPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Blank from "./pages/Blank/Blank";
@@ -19,21 +18,15 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <Header />
               <MainPage />
             </PrivateRoute>
           }
         />
         <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/blank"
-          element={
-            <>
-              <Header />
-              <Blank />
-            </>
-          }
-        />
+        <Route path="/profile" element={<Blank title={"Profile"} />} />
+        <Route path="/orders" element={<Blank title={"My orders"} />} />
+        <Route path="/specifications" element={<Blank title={"Specifications"} />} />
+        <Route path="/chat" element={<Blank title={"Chat"} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

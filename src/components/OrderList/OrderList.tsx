@@ -67,7 +67,7 @@ const dataAccordion: AccordionItem[] = [
   },
 ];
 
-const App: React.FC = () => (
+const OrderList: React.FC = () => (
   <Accordion.Root
     className="AccordionRoot"
     type="single"
@@ -112,4 +112,4 @@ const AccordionContent = forwardRef<
   </Accordion.Content>
 ));
 
-export default App;
+export default OrderList;

@@ -1,10 +1,9 @@
 import styles from "./Main.module.css";
 import * as Dialog from "@radix-ui/react-dialog";
 import { AiOutlineClose } from "react-icons/ai";
-import Form from "../Form/Form";
 import LoadExcel from "../LoadExcel/LoadExcel";
+import { TableFetched } from "../TableFetched.tsx/TableFetched";
 import OrderList from "../OrderList/OrderList";
-import { Table } from "../Table.tsx/Table";
 
 interface IData {
   title: string;
@@ -29,7 +28,7 @@ const data: IData[] = [
     title: "Не оформлені замовлення",
     text: "Не оформлені замовлення",
     src: "/all_orders.jpg",
-    body: <Table/>,
+    body: <TableFetched/>,
   },
 ];
 
