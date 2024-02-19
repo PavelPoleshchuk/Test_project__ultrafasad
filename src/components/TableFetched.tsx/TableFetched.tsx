@@ -37,6 +37,7 @@ export const TableFetched = () => {
         });
     }, 1000);
   }, []);
+
   const CompanyLogoRenderer = ({ value }: { value: string }) => (
     <span
       style={{
@@ -71,6 +72,7 @@ export const TableFetched = () => {
       </p>
     </span>
   );
+
   const MissionResultRenderer = ({ value }: { value: boolean }) => (
     <span>
       <img
@@ -79,25 +81,26 @@ export const TableFetched = () => {
       />
     </span>
   );
-
-  const defaultColDef = useMemo(
-    () => ({
-      // Enable editing on all cells
-      editable: true,
-    }),
-    []
-  );
+  // Enable editing on all cells
+  const defaultColDef = useMemo(() => ({ editable: true }), []);
 
   const [rowData, setRowData] = useState<IRow[]>([]);
   const [colDefs] = useState<ColDef<IRow>[]>([
-    { field: "mission", filter: true, checkboxSelection: true },
+    {
+      field: "mission",
+      headerName: "Миссия",
+      filter: true,
+      checkboxSelection: true,
+    },
     {
       field: "company",
+      headerName: "Фирма",
       cellRenderer: CompanyLogoRenderer,
     },
-    { field: "location" },
+    { field: "location", headerName: "Место" },
     {
       field: "date",
+      headerName: "Дата",
       valueFormatter: (params) => {
         return new Date(params.value).toLocaleDateString(undefined, {
           weekday: "long",
@@ -109,14 +112,20 @@ export const TableFetched = () => {
     },
     {
       field: "price",
+      headerName: "Стоимость",
       // Return a formatted string for this column
       valueFormatter: (params) => {
         return "£" + params.value.toLocaleString();
       },
     },
-    { field: "successful", cellRenderer: MissionResultRenderer },
-    { field: "rocket" },
+    {
+      field: "successful",
+      headerName: "Успешно",
+      cellRenderer: MissionResultRenderer,
+    },
+    { field: "rocket", headerName: "Ракета" },
   ]);
+
   return (
     <div
       className={"ag-theme-quartz"}
@@ -126,12 +135,8 @@ export const TableFetched = () => {
         <AgGridReact
           rowSelection="multiple"
           defaultColDef={defaultColDef}
-          onCellValueChanged={(event) =>
-            console.log(`Новое значение ячейки: ${event.value}`)
-          }
-          onSelectionChanged={(event) =>
-            console.log(`Выбрана ячейка: ${event.type}`)
-          }
+          onCellClicked={(e) => console.log("onCellClicked=", e.value)}
+          onSelectionChanged={(e) => console.log("onSelectionChanged:", e.api)}
           pagination={true}
           rowData={rowData}
           columnDefs={colDefs}
