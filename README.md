@@ -1,4 +1,13 @@
-Для получения токена логин: eve.holt@reqres.in пароль: любой
+** Это небольшой пет-проект с использованием 
+* react-router-dom
+* TypeScript
+* react-hook-form
+* ZOD
+* radix-ui/react-dialog
+* ag-grid-react
+
+!!! Для получения токена логин: eve.holt@reqres.in пароль: любой, ветка - master, запуск - npm run dev
+
 Реализовано:
 1. Доступ к приватным роутам после получения токена
 2. После выхода токен удаляется

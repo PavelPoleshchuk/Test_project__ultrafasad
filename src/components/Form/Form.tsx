@@ -9,8 +9,8 @@ import { fetchToken } from "../tools/useToken";
 import { useNavigate } from "react-router-dom";
 
 const schema = z.object({
-  name: z.string().min(3, { message: "Введіть логін" }),
-  password: z.string().min(3, { message: "Введіть пароль" }),
+  name: z.string().min(3, { message: "Введите логин" }),
+  password: z.string().min(3, { message: "Введите пароль" }),
 });
 
 type FormData = z.infer<typeof schema>;
