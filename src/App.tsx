@@ -1,6 +1,6 @@
 import "./App.css";
 import { Navigate, Route, RouteProps, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage/MainPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Blank from "./pages/Blank/Blank";
