@@ -37,14 +37,14 @@ const Form = () => {
   return (
     <form className="flex-col text-[14px]" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <label>Login</label>
+        <label>Логин</label>
         <div
           className={`${errors.name?.message ? "border-red-500 text-red-500" : "text-black opacity-90"} inline-flex w-full rounded border bg-white px-3 py-1`}
         >
           <LuUser2 className="mr-1.5 mt-1 text-black opacity-70" size={20} />
           <input
             className="hover: h-6 w-full border-gray-300 bg-slate-100 pl-3 hover:bg-slate-200 focus:outline-none"
-            placeholder="Enter login"
+            placeholder="Введите логин"
             autoComplete="current-password"
             {...register("name")}
           />
@@ -56,14 +56,14 @@ const Form = () => {
         </div>
       </div>
       <div>
-        <label>Password</label>
+        <label>Пароль</label>
         <div
           className={`${errors.password?.message ? "border-red-500 text-red-500" : "text-black opacity-90"} inline-flex w-full rounded border bg-white px-3 py-1`}
         >
           <input
             className="h-6 w-full border-gray-300 bg-slate-100 pl-3 hover:bg-slate-200 focus:outline-none"
             type={passwordVisible ? "password" : "text"}
-            placeholder="Enter password"
+            placeholder="Введите пароль"
             autoComplete="current-password"
             {...register("password")}
           />

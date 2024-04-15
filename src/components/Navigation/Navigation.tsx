@@ -11,25 +11,25 @@ function Navigation() {
   return (
     <nav className={styles.nav__wrapper}>
       <ul className={styles.nav__menu}>
-        <li className={styles.nav__li}>
-          <span>Формування замовлення</span>
+        <li className={styles.nav__li} style={{paddingLeft: '65px'}}>
+          <span>Навигация</span>
         </li>
         <li className={styles.nav__li}>
           <Link className={styles.link} to="/profile">
             <FaRegUser style={{ margin: "0 10px 0 0" }} size={20} />
-            Профіль користувача
+            Профиль пользователя
           </Link>
         </li>
         <li className={styles.nav__li}>
           <Link className={styles.link} to="/orders">
             <FaRegCalendarCheck style={{ margin: "0 10px 0 0" }} size={20} />
-            Мої замовлення
+            Мои заказы
           </Link>
         </li>
         <li className={styles.nav__li}>
           <Link className={styles.link} to="/specifications">
             <FaRegChartBar style={{ margin: "0 10px 0 0" }} size={20} />
-            Технічні характеристики
+            Характеристики
           </Link>
         </li>
         <li className={styles.nav__li}>

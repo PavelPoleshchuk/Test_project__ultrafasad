@@ -13,21 +13,21 @@ interface IData {
 }
 const data: IData[] = [
   {
-    title: "Завантажити файл Excel",
-    text: "Завантажити файл Excel",
-    src: "/excel.jpg",
+    title: "Загрузить файл Excel",
+    text: "Загрузить файл Excel",
+    src: "/donload_file.jpg",
     body: <LoadExcel />,
   },
   {
-    title: "Нове замовлення",
-    text: "Нове замовлення",
-    src: "/new_order.jpg",
+    title: "Как выбрать товар",
+    text: "Как выбрать товар",
+    src: "/how_to_choice.jpg",
     body: <OrderList/>,
   },
   {
-    title: "Не оформлені замовлення",
-    text: "Не оформлені замовлення",
-    src: "/all_orders.jpg",
+    title: "Немного про космос",
+    text: "Немного про космос",
+    src: "/space.jpg",
     body: <TableFetched/>,
   },
 ];
@@ -42,7 +42,7 @@ function Main() {
               <div className={styles.main__div}>
                 <div className={styles.title}>{el.title}</div>
                 <div>
-                  <img src={el.src} alt="excel" />
+                  <img src={el.src} alt={el.title} />
                 </div>
               </div>
             </Dialog.Trigger>

@@ -12,8 +12,18 @@ function Header() {
   return (
     <header className={styles.header}>
       <div>
-        <Link to="/">
-          <img className={styles.header__img} src="/logo.png" alt="Logo" />{" "}
+        <Link
+          style={{
+            fontWeight: "bold",
+            fontSize: "59px",
+            lineHeight: "45px",
+            marginTop: "-11px",
+            marginRight: '42px',
+            color:'rgb(80, 112, 177)'
+          }}
+          to="/"
+        >
+          TEST
         </Link>
         <button className={styles.header__btn}>
           <PiHeadphonesBold />
@@ -31,7 +41,7 @@ function Header() {
         className={styles.header__btn_exit}
       >
         <IoMdExit style={{ margin: "0 5px 0 0" }} size={20} />
-        Вихід
+        Выход
       </Link>
     </header>
   );
